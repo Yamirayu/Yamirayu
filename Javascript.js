@@ -1,0 +1,43 @@
+function abrirMenu() {
+    document.getElementById("menu").style.left = "0";
+}
+
+function fecharMenu() {
+    document.getElementById("menu").style.left = "-250px";
+}
+
+function mostrarTexto(elemento) {
+    // Remover a classe 'active' de todos os itens antes de ativar o novo
+    document.querySelectorAll(".menu-item").forEach(item => {
+        item.classList.remove("active");
+        item.querySelector(".menu-icon").style.opacity = "1"; // Traz de volta a logo
+        item.querySelector(".menu-text").style.opacity = "0"; // Esconde o texto
+    });
+
+    // Adiciona a classe 'active' ao item clicado
+    elemento.classList.add("active");
+
+    // Faz a logo desaparecer e o texto aparecer
+    elemento.querySelector(".menu-icon").style.opacity = "0";
+    elemento.querySelector(".menu-text").style.opacity = "1";
+}
+/*tema escuro */
+
+const button = document.getElementById("toggleTheme");
+const body = document.body;
+
+button.addEventListener("click", () => {
+    body.classList.toggle("dark-theme");
+    body.classList.toggle("light-theme");
+
+    // Alterna o texto e ícone do botão
+    if (body.classList.contains("dark-theme")) {
+        button.textContent = "🌙 Escuro";
+        elemento.querySelector(".menu-text").style.opacity = "1";
+    } else {
+        button.textContent = "🌞 Claro";
+    }
+});
+
+// Define o tema inicial
+body.classList.add("light-theme");
