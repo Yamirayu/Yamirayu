@@ -1,0 +1,649 @@
+@import url('https://fonts.googleapis.com/css2?family=Cal+Sans&display=swap');
+
+header {
+    width: 100%;
+    height: 60px;
+    align-items: center;
+    display: flex;
+    padding: 20px;
+    justify-content: center;
+    justify-items: center;
+}
+
+.R.A.P {
+    color: white;
+    width: 97%;
+    height: 60px;
+    align-items: center;
+    display: flex;
+    padding: 20px;
+    justify-items: center;
+}
+
+main {
+
+    height:auto;
+
+
+}
+
+/*menu hamburgue*/
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+
+.menu ul {
+    list-style: none;
+    padding: 0;
+}
+
+.menu ul li {
+    padding: 15px;
+}
+
+.hamburguer {
+    position: absolute;
+    top: 5px;
+    left: 10px;
+    font-size: 30px;
+    background: transparent;
+    /* Fundo transparente */
+    /* Cor do ícone */
+    border: none;
+    padding: 25px;
+    cursor: pointer;
+    z-index: 1000;
+    word-spacing: 2px;
+}
+
+.menu {
+    position: absolute;
+    width: 200px;
+    height: auto;
+    position: fixed;
+    left: -250px;
+    border-radius: 20px;
+    top: 0;
+    transition: 0.3s;
+    padding-top: 70px;
+    z-index: 1001;
+    /* Mantém o menu abaixo do botão */
+}
+
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: transparent;
+    color: white;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.menu ul li a {
+    text-decoration: none;
+    /* Remove o sublinhado */
+    color: white;
+    /* Deixa a cor igual ao ícone do hambúrguer */
+    font-size: 20px;
+    /* Ajusta o tamanho da fonte */
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    /* Espaço entre o ícone e o texto */
+}
+
+/* coisa dentro do menu hamburgue menu hamburgue*/
+
+
+/* Caixa da logo */
+.logo-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 10px;
+    transition: 0.5s ease-in-out;
+    position: relative;
+}
+
+.menu-item {
+    position: relative;
+    padding: 10px 20px;
+    border: none;
+    background-color: transparent;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.menu-icon {
+    width: 50px;
+    /* Ajuste conforme necessário */
+    height: 50px;
+    margin-right: 10px;
+    /* Garante que o texto fique ao lado da logo */
+}
+
+.menu-text {
+    opacity: 0;
+    /* O texto começa invisível */
+    transition: opacity 0.3s ease;
+    /* Efeito de suavidade */
+    width: 15px;
+}
+
+.menu-item:hover .menu-text {
+    opacity: 1;
+    /* O texto aparece ao passar o mouse */
+}
+
+.menu-item:hover .menu-icon {
+    opacity: 0;
+    /* a logo some ao apertar */
+}
+.menu-item:hover  .menu-text{
+    opacity: 1;
+}
+/* Linha suave na esquerda ao passar o mouse */
+.menu-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    justify-content: left;
+    justify-items: left;
+    width: 3px;
+    /* Define a espessura da linha */
+    height: 100%;
+    background-color: #c7e0f4;
+    /* Cor da linha */
+    transition: opacity 0.3s ease-in-out;
+    opacity: 0;
+    /* Linha invisível inicialmente */
+}
+
+.menu-item:hover::before {
+    opacity: 1;
+    /* Linha aparece suavemente ao passar o mouse */
+}
+
+/* Efeito ao clicar */
+.menu-item.active .menu-icon {
+    opacity: 0;
+    /* Esconde a logo */
+}
+
+.menu-item.active .menu-text {
+    opacity: 1;
+    /* Mostra o texto */
+}
+
+.search-box {
+    position: absolute;
+    /* Altera para fixed para ficar sempre na mesma posição ao rolar */
+    top: 15px;
+    /* Mantém a posição vertical */
+    right: 5%;
+    /* Mantém a barra fixa no canto direito */
+    height: auto;
+    padding: 10px;
+    border-radius: 40px;
+    display: flex;
+    justify-content: flex-end;
+    /* Alinha o conteúdo à direita */
+    align-items: center;
+    transition: opacity 0.3s ease;
+    /* Transição suave para aparecer */
+}
+
+.search-txt {
+    border: none;
+    background: none;
+    outline: none;
+    padding: 0;
+    color: #f0f5fb;
+    font-size: 16px;
+    line-height: 40px;
+    width: 0;
+    transition: 0.5s;
+}
+
+.search-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s;
+
+}
+
+.search-btn header {
+    position: absolute;
+    top: 10%;
+    left: 86%;
+    transform: translate(-40%, -80%);
+    background: #0a1b2d;
+    height: 40px;
+    padding: 10px;
+    border-radius: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.search-box:hover>.search-txt {
+    width: 240px;
+    padding: 0 6px;
+}
+
+.search-box:hover>.search-btn {
+    background: #0078d4;
+}
+
+
+
+.renatoestudantes {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+.renatoestudantes img {
+    width: 100%;
+    height: 450px;
+    filter: blur(1px);
+    object-fit: cover;
+}
+
+.renatoestudantes .texto {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 90px;
+    /* Aumenta o tamanho da fonte */
+    font-weight: bold;
+    text-align: center;
+    padding: 20px;
+}
+
+.renatoestudantes .texto span {
+    display: block;
+    font-size: 100px;
+    /* Aumenta ainda mais "O Futuro" */
+}
+
+/* Títulos */
+h1,
+h2 {
+    text-align: center;
+    padding: 10px;
+}
+
+
+
+.carousel-container {
+    width: 500px;
+    overflow: hidden;
+    border-radius: 20px;
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+
+
+}
+
+/* Carrossel automático */
+.carousel {
+    font-family: "Cal Sans", sans-serif;
+    align-items: right;
+    transform: scale(1.75);
+    display: flex;
+    width: 2000px;
+    /* 3 imagens de 500px */
+    animation: slide 9s infinite;
+    justify-content: right;
+    gap: 20px;
+
+}
+
+/* Cada imagem */
+.carousel img {
+    justify-content: space-around;
+    object-fit: cover;
+    max-width: 100%;
+    min-width: 500px;
+    max-height: 300px;
+    min-height: 300px;
+}
+
+/* Animação automática */
+@keyframes slide {
+    0% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-520px);
+    }
+
+    50% {
+        transform: translateX(-1040px);
+    }
+
+    75% {
+        transform: translateX(-1560px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+/* Pausar animação ao passar o mouse */
+.carousel-container:hover .carousel {
+    animation-play-state: paused;
+    transform: scale(1.1);
+}
+
+.carousel-conteiner {
+    margin: 0 10px;
+    transition: transform 0.5s ease;
+}
+
+.carousel,
+.conteiner:hover {
+    transform: scale(1.1);
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    transition: transform 0.3s;
+
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+    transform: scale(1.2);
+}
+
+/*animação para passar o mouse */
+.img1 {
+    position: relative;
+}
+
+.img1 img {
+    transition: filter 0.5s ease-in-out;
+}
+
+.img1:hover img {
+    filter: blur(5px);
+}
+
+.img1:hover {
+    height: 300px;
+    max-width: 880px;
+
+}
+
+.img1 .img-box {
+    position: absolute;
+    width: 300px;
+    height: auto;
+    top: 0px;
+    transform: 0.5s;
+}
+
+.img1:hover .img-box {
+    top: -100px;
+    scale: 0.75;
+
+}
+
+.img1 .img-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+}
+
+.img1 .conteudo {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    position: absolute;
+    top: 350px;
+    width: 100%;
+    text-align: center;
+    height: 30px;
+    padding: 0px 0px;
+    overflow: hidden;
+    transition: 0.5s ease-in-out;
+    opacity: 0;
+    color: #121212;
+}
+
+.img1:hover .conteudo {
+    top: 230px;
+    height: 250px;
+}
+
+.img1 .titulo {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    position: absolute;
+    top: 250px;
+    width: 100%;
+    text-align: center;
+    height: 30px;
+    padding: 0px 30px;
+    opacity: 0;
+    transition: 0.5s ease-in-out;
+    font-size: xx-large;
+}
+
+.img1:hover .titulo {
+    top: 130px;
+    height: 250px;
+}
+
+.img1 .conteudo,
+.img1 .titulo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
+
+.img1:hover .titulo {
+    opacity: 1;
+    top: 130px;
+}
+
+.img1:hover .conteudo {
+    opacity: 1;
+    top: 230px;
+}
+
+/*tema escuro class*/
+/* styles.css */
+
+
+/* Tema claro */
+.light-theme {
+    background-color:#9ECCF7;
+    color: black;
+}
+
+/* Tema escuro */
+.dark-theme {
+    background-color: #121212;
+    color: white;
+}
+
+/* Estilização do botão */
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    background-color: transparent;
+}
+
+/* Botão no tema claro */
+.light-theme main {
+    
+    background: #9ECCF7;
+    background: linear-gradient(90deg, rgba(158, 204, 247, 1) 0%, rgba(158, 204, 247, 1) 64%);
+    color: white;
+}
+
+/* Botão no tema escuro */
+.dark-theme header {
+    background: #020024;
+    background: linear-gradient(90deg, rgb(0, 0, 0) 8%, rgb(23, 23, 109) 100%, rgb(8, 10, 107) 80%);
+}
+.light-theme .hamburguer {
+    color: #fff;
+}
+.dark-theme .hamburguer {
+    color: #fff;
+}
+
+.light-theme header {
+    background: #291cb8;
+    background: linear-gradient(90deg, rgba(41, 28, 184, 1) 4%, rgba(22, 76, 201, 1) 26%, rgba(96, 158, 232, 1) 56%, rgba(105, 174, 240, 1) 98%);
+    color: white;
+    width: auto;
+}
+
+/* Botão no tema escuro */
+.dark-theme main {
+    background: #020024;
+    background: linear-gradient(90deg, rgb(0, 0, 0) 8%, rgb(23, 23, 109) 100%, rgb(8, 10, 107) 80%);
+    color: white;
+    border: 1px solid white;
+}
+
+.light-theme footer {
+    border-radius: 150px 150px 0 0; /* Criando a curva */
+    background: #291cb8;
+    background: linear-gradient(90deg, rgba(41, 28, 184, 1) 4%, rgba(22, 76, 201, 1) 26%, rgba(96, 158, 232, 1) 56%, rgba(105, 174, 240, 1) 98%);
+    color: black;
+}
+
+/* Botão no tema escuro */
+.dark-theme footer {
+    background: #020024;
+    background: linear-gradient(90deg, rgb(0, 0, 0) 8%, rgb(7, 7, 53) 100%, rgb(8, 10, 87) 80%);
+    color: white;
+}
+
+.light-theme .search-box {
+    background-color: gray;
+    color: black;
+}
+
+/* Tema escuro */
+.dark-theme .search-box {
+    background-color: #121212;
+    color: white;
+}
+
+.dark-theme .menu {
+    background-color: midnightblue;
+    position: absolute;
+
+}
+
+.dark-theme .renatoestudantes .texto {
+    background: rgba(0, 0, 0, 0.5);
+    height: 330x;
+}
+
+.light-theme .menu {
+    
+    background: #291cb8;
+    background: linear-gradient(0deg, rgba(41, 28, 184, 1) 4%, rgba(22, 76, 201, 1) 26%, rgba(96, 158, 232, 1) 56%, rgba(105, 174, 240, 1) 98%);
+    position: absolute;
+
+}
+
+/*rodapé*/
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Garante que ocupa toda a altura da tela */
+}
+
+.header {
+    background-color: #444;
+    padding: 10px;
+}
+
+.main {
+    flex: 1; /* Faz com que o conteúdo ocupe o espaço disponível */
+    background-color: #f0f0f0;
+    padding: 20px;
+}
+
+footer {
+    bottom: 0;
+    height: auto;
+    width: 100%;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+
+
+.anime {
+    width: 100px;
+    /* Ajuste conforme necessário */
+    height: auto;
+}
+
+.footer {
+    color: #fff;
+    text-decoration: none;
+    margin-right: 10px;
+
+}
+
+.footer:hover {
+    text-decoration: underline;
+    /* Efeito ao passar o mouse */
+
+}
+
+a[href^="mailto"] {
+    color: #61dafb;
+    text-decoration: none;
+}
