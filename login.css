@@ -1,0 +1,80 @@
+* {
+    text-align: center;
+    padding: 5px;
+}
+
+li {
+    list-style-type: none;
+    text-align: center;
+    padding-bottom: 5%;
+}
+
+input {
+    left: 10px;
+    background-color: #333;
+    border-radius: 2px;
+    text-align: center;
+    /* Centralizando o texto */
+    color: white;
+    padding: 8px;
+    width: 90%;
+}
+
+h1 {
+    font-family: sans-serif;
+    color: black;
+}
+
+.container {
+    font-family: sans-serif;
+    border: 2px solid #333;
+    width: 40%;
+    /* Aumentando para melhor visualização */
+    min-width: 300px;
+    /* Mantendo legível em telas menores */
+    text-align: center;
+    margin: auto;
+    border-radius: 12px;
+    background-color: white;
+    -webkit-box-shadow: 3px 0px 10px 0px black;
+    -moz-box-shadow: 3px 0px 10px 0px black;
+    box-shadow: 3px 0px 10px 0px black;
+    padding: 20px;
+}
+
+/* Ajuste correto para hover */
+.submit {
+    background-color: transparent;
+    color: black;
+    border: 1px solid black;
+    width: 50%;
+    font-family: sans-serif;
+    /* Corrigindo erro de digitação */
+    font-size: 18px;
+    transition: 0.3s ease;
+    text-align: center;
+    cursor: pointer;
+}
+
+.submit:hover {
+    background-color: blueviolet;
+    color: white;
+    border: 1px solid black;
+    font-family: sans-serif;
+    font-size: 16px;
+}
+
+/* Inputs de senha e username */
+.password,
+.username {
+    width: 60%;
+}
+
+body {
+    background-color: #333;
+}
+
+main {
+    justify-items: center;
+    align-items: center;
+}
