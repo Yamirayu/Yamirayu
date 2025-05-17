@@ -1,11 +1,9 @@
 function abrirMenu() {
     document.getElementById("menu").style.left = "0";
 }
-
 function fecharMenu() {
     document.getElementById("menu").style.left = "-250px";
 }
-
 function mostrarTexto(elemento) {
     // Remover a classe 'active' de todos os itens antes de ativar o novo
     document.querySelectorAll(".menu-item").forEach(item => {
@@ -21,23 +19,35 @@ function mostrarTexto(elemento) {
     elemento.querySelector(".menu-icon").style.opacity = "0";
     elemento.querySelector(".menu-text").style.opacity = "1";
 }
+
+
 /*tema escuro */
+document.addEventListener("DOMContentLoaded", () => {
+    const div = document.body;
+    const toggleSwitch = document.getElementById("themeToggle");
 
-const button = document.getElementById("toggleTheme");
-const body = document.body;
-
-button.addEventListener("click", () => {
-    body.classList.toggle("dark-theme");
-    body.classList.toggle("light-theme");
-
-    // Alterna o texto e ícone do botão
-    if (body.classList.contains("dark-theme")) {
-        button.textContent = "🌙 Escuro";
-        elemento.querySelector(".menu-text").style.opacity = "1";
+    // Aplica automaticamente o tema salvo no localStorage
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme) {
+        div.classList.add(savedTheme);
+        if (toggleSwitch) toggleSwitch.checked = (savedTheme === "dark-mode");
     } else {
-        button.textContent = "🌞 Claro";
+        div.classList.add("light-mode"); // Define o tema claro por padrão
+    }
+
+    // Alternar tema ao clicar no botão
+    if (toggleSwitch) {
+        toggleSwitch.addEventListener("change", () => {
+            if (toggleSwitch.checked) {
+                div.classList.remove("light-mode");
+                div.classList.add("dark-mode");
+                localStorage.setItem("theme", "dark-mode");
+            } else {
+                div.classList.remove("dark-mode");
+                div.classList.add("light-mode");
+                localStorage.setItem("theme", "light-mode");
+            }
+        });
     }
 });
 
-// Define o tema inicial
-body.classList.add("light-theme");
