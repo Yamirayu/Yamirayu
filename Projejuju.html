@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projeto-Layout</title>
     <link rel="stylesheet" href="projejuju.css">
+
+    <script src="javascript.js"></script>
+
 </head>
 <header>
     <div id="menu" class="menu">
@@ -36,13 +39,20 @@
                 </a>
             </li>
             <li>
-                <a href="#" class="menu-item" onclick="mostrarTexto(this)">
-                    <div class="logo-box home">
-                        <button id="toggleTheme">🌞 claro </button>
-                        <span class="menu-text
-                        ">tema de fundo</span>
-                    </div>
-                </a>
+                <div class="logo-box home">
+                    <label id="toggleTheme" class="toggle-container">
+                        <input type="checkbox" class="toggle-input" id="themeToggle">
+                        <div class="toggle-slider">
+                            <div class="cloud cloud1"></div>
+                            <div class="cloud cloud2"></div>
+                            <div class="star star1"></div>
+                            <div class="star star2"></div>
+                            <div class="star star3"></div>
+                        </div>
+                    </label>
+                </div>
+            </li>
+
             </li>
         </ul>
     </div>
@@ -50,7 +60,7 @@
 
     <button class="hamburguer" onclick="abrirMenu()">☰</button>
 
-    <script src="javascript.js"></script>
+
 
     <h1 class="R.A.P">
         <P>R.A.P</P>
@@ -74,7 +84,7 @@
                 <span>O Futuro</span>
             </div>
         </div>
-        
+
         </div>
         <h2 class="Recente">Informações Recentes</h2>
         <div class="carousel-container">
