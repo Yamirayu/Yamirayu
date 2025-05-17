@@ -1,3 +1,6 @@
+
+
+
 * {
     text-align: center;
     padding: 5px;
@@ -9,9 +12,25 @@ li {
     padding-bottom: 5%;
 }
 
+
+.dark-mode .login {
+    transition: ease 0.5;
+    color: white;
+
+}
+
+.light-mode input {
+    background-color: rgba(7, 14, 7, 0.486);
+
+}
+
+.dark-mode input {
+    background-color: rgba(0, 0, 0, 0.5);
+
+}
+
 input {
     left: 10px;
-    background-color: #333;
     border-radius: 2px;
     text-align: center;
     /* Centralizando o texto */
@@ -22,16 +41,29 @@ input {
 
 h1 {
     font-family: sans-serif;
-    color: black;
+}
+@keyframes borderLoop {
+    0% {
+        clip-path: inset(0 0 98% 0);
+    }
+    25% {
+        clip-path: inset(0 98% 0 0);
+    }
+    50% {
+        clip-path: inset(98% 0 0 0);
+    }
+    75% {
+        clip-path: inset(0 0 0 98%);
+    }
+    100% {
+        clip-path: inset(0 0 98% 0);
+    }
 }
 
 .container {
     font-family: sans-serif;
-    border: 2px solid #333;
     width: 40%;
-    /* Aumentando para melhor visualização */
     min-width: 300px;
-    /* Mantendo legível em telas menores */
     text-align: center;
     margin: auto;
     border-radius: 12px;
@@ -40,24 +72,135 @@ h1 {
     -moz-box-shadow: 3px 0px 10px 0px black;
     box-shadow: 3px 0px 10px 0px black;
     padding: 20px;
+    position: relative; /* Ajuste necessário */
+}
+.light-mode .container::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 3px  solid rgb(23, 4, 196);
+    animation:  borderLoop 2s infinite linear;
+    top: 0;
+    border-radius: 12px;
+    left: 0;
+    pointer-events: none; /* Evita interferência com elementos internos */
+}
+
+
+.dark-mode .container::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 2px solid rgb(80, 60, 255);
+    animation: borderLoop 2s infinite linear;
+    top: 0;
+    border-radius: 12px;
+    left: 0;
+    pointer-events: none; /* Evita interferência com elementos internos */
+}
+@keyframes neon {
+    0% { box-shadow: 0px 0px 10px rgb(4, 0, 255); }
+    50% { box-shadow: 0px 0px 20px blue; }
+    100% { box-shadow: 0px 0px 10px red; }
+}
+
+
+.light-mode a {
+    color: rgb(4, 2, 114);
+}
+
+.dark-mode a {
+    color: aqua;
+
+}
+
+a {
+    text-decoration: none;
+}
+
+.light-mode .container {
+    background-color: #9ECCF7;
+}
+.nomesenha {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.nomesenha label {
+    font-weight: bold;
+}
+
+.nomesenha input {
+    width: 50%;
+    height:1px; /* Linha mais fina */
+    border: 2px solid black;
+    transition: width 0.4s ease-in-out, height 0.4s ease-in-out;
+    outline: none;
+    text-align: center;
+}
+
+.nomesenha:hover input,
+.nomesenha input:focus {
+    width: 200px;
+    height: 30px;
+    background: transparent;
+    border: 2px solid black;
+    text-align: left;
+}
+
+.nomesenha input:placeholder-shown {
+    width: 0px;
+    height: 1px; /* Linha ainda mais fina ao fechar */
+}
+
+.dark-mode .container {
+    color: aliceblue;
+    transition: ease 0.5s;
+    background-color: #121212;
 }
 
 /* Ajuste correto para hover */
 .submit {
     background-color: transparent;
-    color: black;
+    color: rgb(255, 255, 255);
     border: 1px solid black;
-    width: 50%;
+    width: 20%;
     font-family: sans-serif;
     /* Corrigindo erro de digitação */
     font-size: 18px;
     transition: 0.3s ease;
     text-align: center;
     cursor: pointer;
+    border-radius: 10PX;
 }
 
-.submit:hover {
-    background-color: blueviolet;
+.dark-mode .submit:hover {
+    transform: scale(1.5);
+    /* Aumenta o tamanho em 50% */
+    color: #101541;
+    /* Altera a cor ao passar o mouse */
+}
+
+.light-mode .submit:hover {
+    transform: scale(1.5);
+    /* Aumenta o tamanho em 50% */
+    color: #0c3975;
+    /* Altera a cor ao passar o mouse */
+}
+
+.dark-mode .submit:hover {
+    background-color: rgb(18, 17, 68);
+    color: white;
+    border: 1px solid black;
+    font-family: sans-serif;
+    font-size: 16px;
+}
+
+.light-mode .submit:hover {
+    background-color: rgb(27, 78, 136);
     color: white;
     border: 1px solid black;
     font-family: sans-serif;
@@ -67,14 +210,156 @@ h1 {
 /* Inputs de senha e username */
 .password,
 .username {
-    width: 60%;
+    width: 50%;
+    border-radius: 7px;
 }
 
-body {
-    background-color: #333;
-}
 
 main {
     justify-items: center;
     align-items: center;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    transition: all 0.5s;
+    overflow: hidden;
+}
+
+.light-mode {
+    transition: ease 0.5s;
+    background: linear-gradient(90deg, rgba(41, 28, 184, 1) 4%, rgba(22, 76, 201, 1) 26%, rgba(96, 158, 232, 1) 56%, rgba(105, 174, 240, 1) 98%);
+    color: black;
+}
+
+.dark-mode {
+    transition: ease 0.5s;
+    background: linear-gradient(90deg, rgb(0, 0, 0) 8%, rgb(23, 23, 109) 100%, rgb(8, 10, 107) 80%);
+    color: #fff;
+}
+
+
+.toggle-container {
+    position: relative;
+    width: 80px;
+    height: 40px;
+    position: absolute; /* Permite posicionamento absoluto na tela */
+    top: 0; /* Alinha no topo */
+    left: 0; /* Alinha à esquerda */
+
+
+}
+
+.toggle-input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.toggle-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 40px;
+    transition: .4s;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.light-mode .toggle-slider {
+    background: #7ec4f0;
+    transition: ease 1.5s;
+}
+
+.dark-mode .toggle-slider {
+    transition: ease 0.5s;
+    background: #0f1c2e;
+}
+
+.toggle-slider:before {
+    content: "";
+    position: absolute;
+    height: 30px;
+    width: 30px;
+    left: 5px;
+    bottom: 5px;
+    border-radius: 50%;
+    transition: .4s;
+    z-index: 2;
+}
+
+.light-mode .toggle-slider:before {
+    background: #FFEB3B;
+    box-shadow: 0 0 15px rgba(255, 193, 7, 0.6);
+}
+
+.dark-mode .toggle-slider:before {
+    background: #f5f5f5;
+    transform: translateX(40px);
+    box-shadow: 0 0 10px rgba(176, 190, 197, 0.6);
+}
+
+.cloud {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+    filter: blur(2px);
+}
+
+.cloud1 {
+    width: 20px;
+    height: 12px;
+    top: 10px;
+    left: 45px;
+}
+
+.cloud2 {
+    width: 25px;
+    height: 15px;
+    top: 18px;
+    left: 55px;
+}
+
+.star {
+    position: absolute;
+    background: white;
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%,
+            68% 57%, 79% 91%, 50% 70%,
+            21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    opacity: 0;
+    transition: opacity 0.8s;
+}
+
+.dark-mode .star {
+    opacity: 0.9;
+}
+
+.star1 {
+    width: 3px;
+    height: 3px;
+    top: 10px;
+    left: 20px;
+}
+
+.star2 {
+    width: 2px;
+    height: 2px;
+    top: 15px;
+    left: 35px;
+}
+
+.star3 {
+    width: 2.5px;
+    height: 2.5px;
+    top: 5px;
+    left: 60px;
 }
