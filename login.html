@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" type="text/css" href="login.css">
+</head>
+
+<body class="light-mode">
+    <!-- Botão para alternar entre tema claro e escuro -->
+    <label class="toggle-container">
+        <input type="checkbox" class="toggle-input" id="themeToggle">
+        <div class="toggle-slider">
+            <div class="cloud cloud1"></div>
+            <div class="cloud cloud2"></div>
+            <div class="star star1"></div>
+            <div class="star star2"></div>
+            <div class="star star3"></div>
+        </div>
+    </label>
+
+    <!-- Área do formulário de login -->
+    <div class="container">
+        <div class="header">
+            <h1>Login</h1>
+        </div>
+
+        <!-- Formulário de login -->
+        <form name="login" onsubmit="return false;" method="post">
+            <ul>
+                <li class="nomesenha">
+                    <p class="legenda">Nome ou Email:</p> 
+                    <input class="username" type="text" name="nome">
+                </li>
+                <li class="nomesenha">
+                    <p class="legenda">Senha:</p> 
+                    <input class="password" type="password" name="senha">
+                </li>
+                <li><span id="error-message" class="error"></span></li> 
+                <!-- Mensagem de erro aparece abaixo da senha -->
+                <li><a href="esqueci_a_senha.html">Esqueci minha senha</a></li>
+            </ul>
+
+            <!-- Botão para login com validação -->
+            <input type="button" class="submit" value="Entrar" onclick="validate()">
+
+            <!-- Link para cadastro -->
+            <div class="cadastro">
+                <p class="legenda">Ainda não tem uma conta? <a href="cadastro.html">Cadastre-se aqui</a></p>
+            </div>
+
+            <!-- Botão para entrar como visitante -->
+            <div class="visitante">
+                <p class="legenda">Ou</p>
+                <input type="button" class="submit" value="Entrar como Visitante" onclick="loginAsGuest()">
+            </div>
+        </form>
+    </div>
+
+    <!-- Importação do JavaScript -->
+    <script src="login.js"></script>
+</body>
+
+</html>
