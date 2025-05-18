@@ -1,28 +1,46 @@
-// Função para validar login de usuários cadastrados
+function mostrarCampoLogin() {
+    let tipoUsuario = document.querySelector(".login-usertype").value;
+
+    // Oculta todos os campos inicialmente
+    document.getElementById("campo-login-ra").style.display = "none";
+    document.getElementById("campo-login-rg").style.display = "none";
+    document.getElementById("campo-login-cpf").style.display = "none";
+
+    // Exibe apenas o campo correspondente ao tipo de usuário
+    if (tipoUsuario === "Aluno") {
+        document.getElementById("campo-login-ra").style.display = "block";
+    } else if (tipoUsuario === "Professor") {
+        document.getElementById("campo-login-rg").style.display = "block";
+    } else if (tipoUsuario === "Responsável") {
+        document.getElementById("campo-login-cpf").style.display = "block";
+    }
+}
+
 function validate() {
-    var username = document.querySelector(".username").value;
+    var tipoUsuario = document.querySelector(".login-usertype").value;
     var password = document.querySelector(".password").value;
     var errorMessage = document.getElementById("error-message");
 
-    // Limpa mensagens de erro anteriores
+    var userInput = "";
+    if (tipoUsuario === "Aluno") userInput = document.querySelector(".login-ra").value;
+    else if (tipoUsuario === "Professor") userInput = document.querySelector(".login-rg").value;
+    else if (tipoUsuario === "Responsável") userInput = document.querySelector(".login-cpf").value;
+
     errorMessage.textContent = "";
     errorMessage.style.color = "red";
 
-    // Obter lista de usuários cadastrados no localStorage
     var users = JSON.parse(localStorage.getItem("users")) || [];
 
-    // Verificar se o usuário existe
-    var userFound = users.find(user => user.username === username);
+    var userFound = users.find(user => user.userType === tipoUsuario && user.userId === userInput);
 
     if (!userFound) {
         errorMessage.textContent = "Usuário não encontrado!";
         return;
     }
 
-    // Verificar se a senha está correta
     if (userFound.password === password) {
         alert("Login realizado com sucesso!");
-        window.location.href = "projejuju.html"; // Redirecionar para página principal
+        window.location.href = "projejuju.html"; 
     } else {
         errorMessage.textContent = "Senha incorreta!";
     }
@@ -32,7 +50,7 @@ function validate() {
 function loginAsGuest() {
     alert("Você entrou como visitante! Algumas funcionalidades estarão limitadas.");
     localStorage.setItem("userType", "visitante");
-    window.location.href = "projejuju.html"; // Redirecionar para página principal
+    window.location.href = "projejuju.html"; 
 }
 
 // Código para alternar o tema escuro/claro
