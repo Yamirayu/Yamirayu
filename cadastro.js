@@ -1,49 +1,65 @@
 function registerUser() {
-    // Pegando valores dos campos do formulário
-    var newUsername = document.querySelector(".new-username").value;
+    var userType = document.querySelector(".new-usertype").value;
     var newPassword = document.querySelector(".new-password").value;
-    var newGender = document.querySelector(".new-gender").value;
-    var newBirthDate = document.querySelector(".new-birthdate").value;
-    var newUserType = document.querySelector(".new-usertype").value;
+    var newEmail = document.querySelector(".new-email").value;
     var message = document.getElementById("register-message");
 
-    // Verificar se todos os campos foram preenchidos
-    if (newUsername === "" || newPassword === "" || newGender === "" || newBirthDate === "" || newUserType === "") {
+    // Definição do identificador (RA, RG ou CPF)
+    var userId = "";
+    if (userType === "Aluno") userId = document.querySelector(".new-ra").value;
+    else if (userType === "Professor") userId = document.querySelector(".new-rg").value;
+    else if (userType === "Responsável") userId = document.querySelector(".new-cpf").value;
+
+    // Validação de preenchimento dos campos
+    if (userId === "" || newPassword === "" || newEmail === "" || userType === "") {
         message.textContent = "Preencha todos os campos!";
         message.style.color = "red";
         return;
     }
 
-    // Obter usuários cadastrados no localStorage
     var users = JSON.parse(localStorage.getItem("users")) || [];
 
-    // Verificar se o usuário já existe
-    var userExists = users.some(user => user.username === newUsername);
+    // Verificar se a identificação já existe
+    var userExists = users.some(user => user.userId === userId);
     if (userExists) {
-        message.textContent = "Usuário já existe! Escolha outro nome.";
+        message.textContent = "Identificação já cadastrada!";
         message.style.color = "red";
         return;
     }
 
-    // Adicionar novo usuário ao localStorage
+    // Salvar usuário
     users.push({
-        username: newUsername,
-        password: newPassword,
-        gender: newGender,
-        birthDate: newBirthDate,
-        userType: newUserType
+        userType: userType,
+        userId: userId,
+        email: newEmail,
+        password: newPassword
     });
 
     localStorage.setItem("users", JSON.stringify(users));
 
-    // Mostrar mensagem de sucesso
     message.textContent = "Cadastro realizado com sucesso!";
     message.style.color = "green";
 
-    // Redirecionar para página de login após cadastro
     setTimeout(() => {
         window.location.href = "login.html";
     }, 2000);
+}
+
+// Função para exibir RA, RG ou CPF de acordo com o tipo de usuário
+function mostrarCampoEspecifico() {
+    let tipoUsuario = document.querySelector(".new-usertype").value;
+
+    document.getElementById("campo-ra").style.display = "none";
+    document.getElementById("campo-rg").style.display = "none";
+    document.getElementById("campo-cpf").style.display = "none";
+
+    if (tipoUsuario === "Aluno") {
+        document.getElementById("campo-ra").style.display = "block";
+    } else if (tipoUsuario === "Professor") {
+        document.getElementById("campo-rg").style.display = "block";
+    } else if (tipoUsuario === "Responsável") {
+        document.getElementById("campo-cpf").style.display = "block";
+    }
 }
 
 // Código para alternar o tema escuro/claro
