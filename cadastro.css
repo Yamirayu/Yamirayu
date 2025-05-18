@@ -2,24 +2,17 @@ body, header, main, footer, button, input {
     transition: background-color 0.5s ease, color 0.5s ease, border 0.5s ease;
 }
 
+.light-mode {
+    transition: ease 0.5s;
+    background: linear-gradient(90deg, rgba(41, 28, 184, 1) 4%, rgba(22, 76, 201, 1) 26%, rgba(96, 158, 232, 1) 56%, rgba(105, 174, 240, 1) 98%);
+    color: black;
+}
+
 .dark-mode {
-    background-color: #0f1c2e; /* Fundo escuro */
-    color: white; /* Texto branco para contraste */
+    transition: ease 0.5s;
+    background: linear-gradient(90deg, rgb(0, 0, 0) 8%, rgb(23, 23, 109) 100%, rgb(8, 10, 107) 80%);
+    color: #fff;
 }
-
-/* Ajustes opcionais para elementos como botões e inputs */
-.dark-mode button {
-    background-color: #333;
-    color: white;
-    border: 1px solid white;
-}
-
-.dark-mode input {
-    background-color: #222;
-    color: white;
-    border: 1px solid white;
-}
-
 
 
 /*botao do tema escuro*/
@@ -140,4 +133,72 @@ body, header, main, footer, button, input {
     height: 2.5px;
     top: 5px;
     left: 60px;
+}
+
+
+.container {
+    font-family: sans-serif;
+    width: 40%;
+    min-width: 300px;
+    text-align: center;
+    margin: auto;
+    border-radius: 12px;
+    background-color: white;
+    -webkit-box-shadow: 3px 0px 10px 0px black;
+    -moz-box-shadow: 3px 0px 10px 0px black;
+    box-shadow: 3px 0px 10px 0px black;
+    padding: 20px;
+    position: relative; /* Ajuste necessário */
+}
+.light-mode .container::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 3px  solid rgb(23, 4, 196);
+    animation:  borderLoop 2s infinite linear;
+    top: 0;
+    border-radius: 12px;
+    left: 0;
+    pointer-events: none; /* Evita interferência com elementos internos */
+}
+
+
+.dark-mode .container::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 2px solid rgb(80, 60, 255);
+    animation: borderLoop 2s infinite linear; /*puxei a funçao da linha aqui */
+    top: 0;
+    border-radius: 12px;
+    left: 0;
+    pointer-events: none; /* Evita interferência com elementos internos */
+}
+.light-mode .container {
+    background-color: #9ECCF7;
+}
+.dark-mode .container {
+    color: aliceblue;
+    transition: ease 0.5s;
+    background-color: #121212;
+}
+/*essa aqui é a funçao da linha vc criar ela e puxa quando for usar*/
+@keyframes borderLoop {
+    0% {
+        clip-path: inset(0 0 98% 0);
+    }
+    25% {
+        clip-path: inset(0 98% 0 0);
+    }
+    50% {
+        clip-path: inset(98% 0 0 0);
+    }
+    75% {
+        clip-path: inset(0 0 0 98%);
+    }
+    100% {
+        clip-path: inset(0 0 98% 0);
+    }
 }
