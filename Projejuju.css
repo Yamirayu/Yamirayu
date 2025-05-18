@@ -1,6 +1,9 @@
 body, header, main, footer, button, input {
     transition: background-color 0.5s ease, color 0.5s ease, border 0.5s ease;
 }
+body.modo-visitante * {
+    pointer-events: none;
+}
 
 
 @import url('https://fonts.googleapis.com/css2?family=Cal+Sans&display=swap');
@@ -567,9 +570,9 @@ h2 {
 
 }
 
-.dark-mode .renatoestudantes .texto {
+.dark-mode .renatoestudantes  {
     background: rgba(0, 0, 0, 0.5);
-    height: 330x;
+    height: auto;
 }
 
 
