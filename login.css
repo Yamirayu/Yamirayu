@@ -1,7 +1,52 @@
+/*começo do visitante*/
 
+.submit2 {
+    background-color: transparent;
+    color: rgb(255, 255, 255);
+    border: 1px solid black;
+    width: 30%;
+    font-family: sans-serif;
+    /* Corrigindo erro de digitação */
+    font-size: 18px;
+    transition: 0.3s ease;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 10PX;
+}
 
+.dark-mode .submit2:hover {
+    transform: scale(1.0);
+    /* Aumenta o tamanho em 50% */
+    color: #101541;
+    /* Altera a cor ao passar o mouse */
+}
 
-* {
+.light-mode .submit2:hover {
+    transform: scale(1.0);
+    /* Aumenta o tamanho em 50% */
+    color: #0c3975;
+    /* Altera a cor ao passar o mouse */
+}
+
+.dark-mode .submit2:hover {
+    background-color: rgb(18, 17, 68);
+    color: white;
+    border: 1px solid black;
+    font-family: sans-serif;
+    font-size: 16px;
+}
+
+.light-mode .submit2:hover {
+    background-color: rgb(27, 78, 136);
+    color: white;
+    border: 1px solid black;
+    font-family: sans-serif;
+    font-size: 16px;
+}
+
+/*fim do visitante*/  
+
+ * {
     text-align: center;
     padding: 5px;
 }
