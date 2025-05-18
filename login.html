@@ -25,40 +25,55 @@
             <h1>Login</h1>
         </div>
 
-        <!-- Formulário de login -->
         <form name="login" onsubmit="return false;" method="post">
             <ul>
                 <li class="nomesenha">
-                    <p class="legenda">Nome ou Email:</p> 
-                    <input class="username" type="text" name="nome">
+                    <p class="legenda">Tipo de usuário:</p>
+                    <select class="login-usertype" onchange="mostrarCampoLogin()" required>
+                        <option value="">Selecione</option>
+                        <option value="Professor">Professor</option>
+                        <option value="Responsável">Responsável</option>
+                        <option value="Aluno">Aluno</option>
+                    </select>
                 </li>
+
+                <li class="nomesenha" id="campo-login-ra" style="display:none;">
+                    <p class="legenda">RA:</p>
+                    <input class="login-ra" type="text" name="ra">
+                </li>
+
+                <li class="nomesenha" id="campo-login-rg" style="display:none;">
+                    <p class="legenda">RG:</p>
+                    <input class="login-rg" type="text" name="rg">
+                </li>
+
+                <li class="nomesenha" id="campo-login-cpf" style="display:none;">
+                    <p class="legenda">CPF:</p>
+                    <input class="login-cpf" type="text" name="cpf">
+                </li>
+
                 <li class="nomesenha">
-                    <p class="legenda">Senha:</p> 
+                    <p class="legenda">Senha:</p>
                     <input class="password" type="password" name="senha">
                 </li>
-                <li><span id="error-message" class="error"></span></li> 
-                <!-- Mensagem de erro aparece abaixo da senha -->
-                <li><a href="esqueci_a_senha.html">Esqueci minha senha</a></li>
+
+                <li><span id="error-message" class="error"></span></li>
+                <li><a class="esqueci_a_senha" href="esqueci_a_senha.html">Esqueci minha senha</a></li>
             </ul>
 
-            <!-- Botão para login com validação -->
             <input type="button" class="submit" value="Entrar" onclick="validate()">
-
-            <!-- Link para cadastro -->
             <div class="cadastro">
                 <p class="legenda">Ainda não tem uma conta? <a href="cadastro.html">Cadastre-se aqui</a></p>
             </div>
-
-            <!-- Botão para entrar como visitante -->
             <div class="visitante">
                 <p class="legenda">Ou</p>
-                <input type="button" class="submit" value="Entrar como Visitante" onclick="loginAsGuest()">
+                <input type="button" class="submit2" value="Entrar como Visitante" onclick="loginAsGuest()">
             </div>
-        </form>
+
+            <script src="login.js"></script>
     </div>
 
-    <!-- Importação do JavaScript -->
-    <script src="login.js"></script>
+
 </body>
 
 </html>
