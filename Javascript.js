@@ -50,10 +50,22 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 });
-// funçao visitante
-setTimeout(function () {
-    mostrarAvisoLogin();
-}, 30000); // 30.000 ms = 30 segundos
+document.addEventListener("DOMContentLoaded", () => {
+    const userType = localStorage.getItem("userType");
+
+    // Se o usuário estiver logado, interrompemos qualquer contagem do modo visitante
+    if (userType === "usuario") {
+        localStorage.removeItem("userType"); // Remove status de visitante
+        return; // Sai antes de iniciar o temporizador!
+    }
+
+    // Se ainda estiver como visitante, inicia o temporizador para exibir o aviso
+    if (userType === "visitante") {
+        visitanteTimeout = setTimeout(function () {
+            mostrarAvisoLogin();
+        }, 30000);
+    }
+});
 
 function mostrarAvisoLogin() {
     let aviso = document.createElement("div");
@@ -72,15 +84,6 @@ function mostrarAvisoLogin() {
     aviso.innerHTML = "<div style='padding: 20px; background: black; border-radius: 10px;'>Você está navegando como visitante. Redirecionando para login em 10 segundos...</div>";
 
     document.body.appendChild(aviso);
-
-    // Bloqueia interações
-    document.addEventListener("keydown", function (event) {
-        event.preventDefault();
-    });
-
-    document.addEventListener("click", function (event) {
-        event.preventDefault();
-    });
 
     // Redireciona para login após 10 segundos
     setTimeout(function () {

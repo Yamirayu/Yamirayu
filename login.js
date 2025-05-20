@@ -40,13 +40,21 @@ function validate() {
 
     if (userFound.password === password) {
         alert("Login realizado com sucesso!");
-        window.location.href = "projejuju.html"; 
+        window.location.href = "projejuju.html";
     } else {
         errorMessage.textContent = "Senha incorreta!";
     }
 }
-
 // Função para login como visitante
+// Função para login como visitante
+function loginUser() {
+    clearTimeout(visitanteTimeout); // Cancela qualquer temporizador ativo
+    localStorage.setItem("userType", "usuario"); // Define como usuário logado
+    alert("Bem-vindo! Você fez login com sucesso.");
+    window.location.href = "projejuju.html"; // Redireciona após salvar corretamente
+}
+
+// Função para login como visitante (mantém o modo visitante ativo)
 function loginAsGuest() {
     alert("Você entrou como visitante! Algumas funcionalidades estarão limitadas.");
     localStorage.setItem("userType", "visitante");
@@ -80,5 +88,13 @@ document.addEventListener("DOMContentLoaded", () => {
                 localStorage.setItem("theme", "light-mode");
             }
         });
+    }
+});
+
+// Verifica se o usuário está logado e remove o status de visitante caso necessário
+document.addEventListener("DOMContentLoaded", () => {
+    const userType = localStorage.getItem("userType");
+    if (userType === "usuario") {
+        localStorage.removeItem("userType"); // Remove o modo visitante ao logar
     }
 });
