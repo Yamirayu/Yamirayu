@@ -29,51 +29,38 @@
             <h1>Criar Conta</h1>
         </div>
 
-        <!-- Formulário de cadastro -->
         <form onsubmit="registerUser(); return false;">
             <ul>
-                <li>Username: <input class="new-username" type="text" name="nome" required></li>
-                <li>Password: <input class="new-password" type="password" name="senha" required></li>
-                
-                <!-- Campo para selecionar o sexo -->
-                <li>Sexo:
-                    <select class="new-gender" required>
-                        <option value="">Selecione</option>
-                        <option value="Feminino">Feminino</option>
-                        <option value="Masculino">Masculino</option>
-                    </select>
-                </li>
-
-                <!-- Campo para data de nascimento -->
-                <li>Data de Nascimento: <input class="new-birthdate" type="date" required></li>
-
-                <!-- Seleção do tipo de usuário -->
                 <li>Tipo de usuário:
-                    <select class="new-usertype" required>
+                    <select class="new-usertype" onchange="mostrarCampoEspecifico()" required>
                         <option value="">Selecione</option>
                         <option value="Professor">Professor</option>
                         <option value="Responsável">Responsável</option>
                         <option value="Aluno">Aluno</option>
-                        <option value="Administrador">Administrador</option>
                     </select>
                 </li>
 
-                <!-- Mensagem de confirmação do cadastro -->
+                <!-- Campos específicos conforme tipo de usuário -->
+                <li id="campo-ra" style="display:none;">RA: <input class="new-ra" type="text"></li>
+                <li id="campo-rg" style="display:none;">RG: <input class="new-rg" type="text"></li>
+                <li id="campo-cpf" style="display:none;">CPF: <input class="new-cpf" type="text"></li>
+
+                <li>Email: <input class="new-email" type="email" required></li>
+                <li>Password: <input class="new-password" type="password" required></li>
+
                 <li><span id="register-message" class="message"></span></li>
             </ul>
 
-            <!-- Botão de envio do formulário -->
             <input type="submit" class="submit" value="Cadastrar">
         </form>
 
-        <!-- Link para login caso já tenha conta -->
         <div class="login-link">
             <p>Já tem uma conta? <a href="login.html">Faça login aqui</a></p>
         </div>
+
+        <script src="cadastro.js"></script>
     </div>
 
-    <!-- Importação do JavaScript -->
-    <script src="cadastro.js"></script>
 </body>
 
 </html>
