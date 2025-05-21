@@ -118,9 +118,68 @@
                     <h2 class="titulo">SALA DO FUTURO </h2>
                     <p class="conteudo">TAREFAS SP, SPEAK, LEIA SP, BOLETIM </p>
                 </a>
+
             </div>
         </div>
-        <h2>Destaques</h2>
+
+    
+            
+            
+        </head>
+
+        <body>
+            <h2>Destaques</h2>
+            <div class="slider-galeria">
+                <button class="botao-navegacao botao-esquerda" onclick="moveSlide(-1)">&#10094;</button>
+                <div class="slider-container">
+                    <img src="https://tutorialtec.com.br/wp-content/uploads/2023/03/gov.br_.jpg" class="slide">
+                    <img src="https://private-user-images.githubusercontent.com/209934558/445118797-3911877d-8757-4152-becb-0cd106190605.png"
+                        class="slide">
+                    <img src="https://projeto-cdn.infra.grancursosonline.com.br/see-sp-secretaria-estadual-de-educacao-de-sao-paulo.png"
+                        class="slide">
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiZpzP4TPvY8fnW28ubr_SdkYhLIswa586pmjphcQcTpcT3aiIHzOdp6HfZ6MRe2q5Je62hAEgZF-PpGtlmnBHpHL682UZH12NGKZQIGwAJV7fyF1FK_oewfB1n5Vs_WF6I9PH5vvdoHBF9R6O8v7v7jCKfI87irsj3bcKRGFTwvPkTP9i5IKE2-valdiGK/w640-h228/SPeak%20-%20Ingl%C3%AAs%20para%20todos.jpg"
+                        class="slide">
+                    <img src="https://i1.wp.com/testprepnerds.com/wp-content/uploads/2019/03/khan-academy-logo.png?fit=2400%2C1260&ssl=1"
+                        class="slide">
+                    <img src="https://th.bing.com/th/id/R.820316408b6dbce53cb9c6c0f95b7ba4?rik=i06nWcPrVx8I8A&riu=http%3a%2f%2fwww.dabysantos.com.br%2fwp-content%2fuploads%2f2022%2f08%2fjogos-escolares.jpg&ehk=7iuborGOSEnHbkcAqRA2XfbxsJiyb%2fCwVYJ5SOfecPE%3d&risl=&pid=ImgRaw&r=0"
+                        class="slide">
+                    <img src="https://th.bing.com/th/id/OIP.o_KS1shuk4bT3I_i-8B9BQHaEU?rs=1&pid=ImgDetMain"
+                        class="slide">
+                        
+                </div>
+                <button class="botao-navegacao botao-direita" onclick="moveSlide(1)">&#10095;</button>
+            </div>
+
+            <script>
+                let currentIndex = 0;
+
+                function moveSlide(direction) {
+                    const slides = document.querySelectorAll(".slide");
+                    const container = document.querySelector(".slider-container");
+                    const totalSlides = slides.length;
+
+                    currentIndex += direction;
+
+                    // 🔹 Impede que ultrapasse os limites do carrossel
+                    if (currentIndex >= totalSlides) {
+                        currentIndex = totalSlides - 1; // Mantém na última imagem
+                    } else if (currentIndex < 0) {
+                        currentIndex = 0; // Mantém na primeira imagem
+                    }
+
+                    // 🔹 Usa `offsetWidth` corretamente para o cálculo de deslocamento
+                    const slideWidth = slides[0].offsetWidth + 20; // Adiciona espaço entre imagens corretamente
+                    container.style.transform = `translateX(${-currentIndex * slideWidth}px)`;
+                    container.style.transform = `translateX(${-currentIndex * (slideWidth + gap)}px)`;
+
+                    // 🔹 Log para verificar valores corretos
+                    console.log(`Índice atual: ${currentIndex}, Total de slides: ${totalSlides}`);
+                }
+
+                // 🔹 Teste sem `setInterval()` para verificar funcionamento correto
+                document.querySelector(".botao-direita").addEventListener("click", () => moveSlide(1));
+                document.querySelector(".botao-esquerda").addEventListener("click", () => moveSlide(-1));
+            </script>
 
     </main>
 
