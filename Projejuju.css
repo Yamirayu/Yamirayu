@@ -1,6 +1,12 @@
-body, header, main, footer, button, input {
+body,
+header,
+main,
+footer,
+button,
+input {
     transition: background-color 0.5s ease, color 0.5s ease, border 0.5s ease;
 }
+
 body.modo-visitante * {
     pointer-events: none;
 }
@@ -10,6 +16,7 @@ body.modo-visitante * {
 
 
 header {
+
     width: 100%;
     height: 60px;
     align-items: center;
@@ -31,13 +38,14 @@ header {
 
 main {
 
-    height:auto;
+    height: auto;
 
 
 }
 
 /*menu hamburgue*/
 body {
+    overflow-x: hidden;
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
@@ -160,9 +168,11 @@ body {
     opacity: 0;
     /* a logo some ao apertar */
 }
-.menu-item:hover  .menu-text{
+
+.menu-item:hover .menu-text {
     opacity: 1;
 }
+
 /* Linha suave na esquerda ao passar o mouse */
 .menu-item::before {
     content: '';
@@ -498,14 +508,15 @@ h2 {
 /*tema escuro class*/
 /* Botão no tema claro */
 .light-mode .menu {
-    
+
     background: #291cb8;
     background: linear-gradient(0deg, rgba(41, 28, 184, 1) 4%, rgba(22, 76, 201, 1) 26%, rgba(96, 158, 232, 1) 56%, rgba(105, 174, 240, 1) 98%);
     position: absolute;
 
 }
+
 .light-mode main {
-    
+
     background: #9ECCF7;
     background: linear-gradient(90deg, rgba(158, 204, 247, 1) 0%, rgba(158, 204, 247, 1) 64%);
     color: white;
@@ -517,9 +528,11 @@ h2 {
     background: #020024;
     background: linear-gradient(90deg, rgb(0, 0, 0) 8%, rgb(23, 23, 109) 100%, rgb(8, 10, 107) 80%);
 }
+
 .light-mode .hamburguer {
     color: #fff;
 }
+
 .dark-mode .hamburguer {
     color: #fff;
 }
@@ -540,7 +553,8 @@ h2 {
 }
 
 .light-mode footer {
-    border-radius: 150px 150px 0 0; /* Criando a curva */
+    border-radius: 150px 150px 0 0;
+    /* Criando a curva */
     background: #291cb8;
     background: linear-gradient(90deg, rgba(41, 28, 184, 1) 4%, rgba(22, 76, 201, 1) 26%, rgba(96, 158, 232, 1) 56%, rgba(105, 174, 240, 1) 98%);
     color: black;
@@ -570,7 +584,7 @@ h2 {
 
 }
 
-.dark-mode .renatoestudantes  {
+.dark-mode .renatoestudantes {
     background: rgba(0, 0, 0, 0.5);
     height: auto;
 }
@@ -581,7 +595,7 @@ h2 {
 
 /* Tema claro */
 .light-mode {
-    background-color:#9ECCF7;
+    background-color: #9ECCF7;
     color: black;
 }
 
@@ -598,7 +612,8 @@ button {
 
 
 /*rodapé*/
-html, body {
+html,
+body {
     height: 100%;
     margin: 0;
 }
@@ -606,7 +621,8 @@ html, body {
 .container {
     display: flex;
     flex-direction: column;
-    min-height: 100vh; /* Garante que ocupa toda a altura da tela */
+    min-height: 100vh;
+    /* Garante que ocupa toda a altura da tela */
 }
 
 .header {
@@ -615,7 +631,8 @@ html, body {
 }
 
 .main {
-    flex: 1; /* Faz com que o conteúdo ocupe o espaço disponível */
+    flex: 1;
+    /* Faz com que o conteúdo ocupe o espaço disponível */
     background-color: #f0f0f0;
     padding: 20px;
 }
@@ -653,6 +670,7 @@ a[href^="mailto"] {
     color: #61dafb;
     text-decoration: none;
 }
+
 /*botao do tema claro e escuro*/
 
 
@@ -660,9 +678,12 @@ a[href^="mailto"] {
     position: relative;
     width: 80px;
     height: 40px;
-    position: absolute; /* Permite posicionamento absoluto na tela */
-    top: 0; /* Alinha no topo */
-    left: 0; /* Alinha à esquerda */
+    position: absolute;
+    /* Permite posicionamento absoluto na tela */
+    top: 0;
+    /* Alinha no topo */
+    left: 0;
+    /* Alinha à esquerda */
 
 
 }
@@ -773,4 +794,59 @@ a[href^="mailto"] {
     height: 2.5px;
     top: 5px;
     left: 60px;
+}
+
+
+/*carrossel 2*/
+.slider-galeria {
+    position: relative;
+    margin: auto;
+    max-width: 700px;
+    overflow-x: hidden;
+}
+.slider-container {
+    display: flex;
+    justify-content: center;
+    /* Espaço entre as imagens */
+    transition: transform 2s ease-in-out;
+    gap: 20px;
+    /* Espaço entre as imagens */
+    padding: 20px;
+}
+.slide {
+    /* Define um tamanho fixo */
+    min-width: 250px;
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+
+}
+
+/* Corrigindo botões que estavam indo para trás da imagem */
+.botao-navegacao {
+    position: absolute;
+    z-index: 1;
+    /* Garante que os botões fiquem acima das imagens */
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    border: none;
+    padding: 12px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background 0.3s, scale 0.2s;
+}
+
+.botao-navegacao:hover {
+    background: rgba(0, 0, 0, 1);
+    scale: 1.1;
+}
+
+.botao-esquerda {
+    left: 10px;
+}
+
+.botao-direita {
+    right: 10px;
 }
