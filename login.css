@@ -44,9 +44,9 @@
     font-size: 16px;
 }
 
-/*fim do visitante*/  
+/*fim do visitante*/
 
- * {
+* {
     text-align: center;
     padding: 5px;
 }
@@ -87,19 +87,24 @@ input {
 h1 {
     font-family: sans-serif;
 }
+
 @keyframes borderLoop {
     0% {
         clip-path: inset(0 0 98% 0);
     }
+
     25% {
         clip-path: inset(0 98% 0 0);
     }
+
     50% {
         clip-path: inset(98% 0 0 0);
     }
+
     75% {
         clip-path: inset(0 0 0 98%);
     }
+
     100% {
         clip-path: inset(0 0 98% 0);
     }
@@ -117,19 +122,22 @@ h1 {
     -moz-box-shadow: 3px 0px 10px 0px black;
     box-shadow: 3px 0px 10px 0px black;
     padding: 20px;
-    position: relative; /* Ajuste necessário */
+    position: relative;
+    /* Ajuste necessário */
 }
+
 .light-mode .container::before {
     content: "";
     position: absolute;
     width: 100%;
     height: 100%;
-    border: 3px  solid rgb(23, 4, 196);
-    animation:  borderLoop 2s infinite linear;
+    border: 3px solid rgb(23, 4, 196);
+    animation: borderLoop 2s infinite linear;
     top: 0;
     border-radius: 12px;
     left: 0;
-    pointer-events: none; /* Evita interferência com elementos internos */
+    pointer-events: none;
+    /* Evita interferência com elementos internos */
 }
 
 
@@ -143,12 +151,22 @@ h1 {
     top: 0;
     border-radius: 12px;
     left: 0;
-    pointer-events: none; /* Evita interferência com elementos internos */
+    pointer-events: none;
+    /* Evita interferência com elementos internos */
 }
+
 @keyframes neon {
-    0% { box-shadow: 0px 0px 10px rgb(4, 0, 255); }
-    50% { box-shadow: 0px 0px 20px blue; }
-    100% { box-shadow: 0px 0px 10px red; }
+    0% {
+        box-shadow: 0px 0px 10px rgb(4, 0, 255);
+    }
+
+    50% {
+        box-shadow: 0px 0px 20px blue;
+    }
+
+    100% {
+        box-shadow: 0px 0px 10px red;
+    }
 }
 
 
@@ -168,6 +186,7 @@ a {
 .light-mode .container {
     background-color: #9ECCF7;
 }
+
 .nomesenha {
     display: flex;
     flex-direction: column;
@@ -180,7 +199,8 @@ a {
 
 .nomesenha input {
     width: 50%;
-    height:1px; /* Linha mais fina */
+    height: 1px;
+    /* Linha mais fina */
     border: 2px solid black;
     transition: width 0.4s ease-in-out, height 0.4s ease-in-out;
     outline: none;
@@ -198,7 +218,8 @@ a {
 
 .nomesenha input:placeholder-shown {
     width: 0px;
-    height: 1px; /* Linha ainda mais fina ao fechar */
+    height: 1px;
+    /* Linha ainda mais fina ao fechar */
 }
 
 .dark-mode .container {
@@ -294,9 +315,12 @@ body {
     position: relative;
     width: 80px;
     height: 40px;
-    position: absolute; /* Permite posicionamento absoluto na tela */
-    top: 0; /* Alinha no topo */
-    left: 0; /* Alinha à esquerda */
+    position: absolute;
+    /* Permite posicionamento absoluto na tela */
+    top: 0;
+    /* Alinha no topo */
+    left: 0;
+    /* Alinha à esquerda */
 
 
 }
@@ -407,4 +431,37 @@ body {
     height: 2.5px;
     top: 5px;
     left: 60px;
+}
+
+.seleciona {
+    background-color: transparent;
+    color: rgb(255, 255, 255);
+    border: 1px solid black;
+    width: 30%;
+    font-family: sans-serif;
+    /* Corrigindo erro de digitação */
+    font-size: 18px;
+    transition: 0.3s ease;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 10PX;
+}
+
+.dark-mode .seleciona:hover {
+    transform: scale(1.0);
+    /* Aumenta o tamanho em 50% */
+    color:  rgb(24, 20, 71);
+    animation: 3 SOLID NEON ; /* Altera a cor ao passar o mouse */
+}
+
+.light-mode .seleciona:hover {
+    transform: scale(1.0);
+    /* Aumenta o tamanho em 50% */
+    background-color: rgba(28, 184, 171, 0.5) ;
+    /* Altera a cor ao passar o mouse */
+}
+
+
+.seleciona1 {
+    background-color: rgb(35, 30, 90,);
 }
