@@ -29,7 +29,7 @@
 }
 
 .dark-mode .submit2:hover {
-    background-color: rgb(18, 17, 68);
+    background-color: rgba(65, 60, 60, 0.5);
     color: white;
     border: 1px solid black;
     font-family: sans-serif;
@@ -70,7 +70,7 @@ li {
 }
 
 .dark-mode input {
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(65, 60, 60, 0.5);
 
 }
 
@@ -82,6 +82,8 @@ input {
     color: white;
     padding: 8px;
     width: 90%;
+    background-color: rgba(65, 60, 60, 0.5);
+
 }
 
 h1 {
@@ -131,8 +133,8 @@ h1 {
     position: absolute;
     width: 100%;
     height: 100%;
-    border: 3px solid rgb(23, 4, 196);
-    animation: borderLoop 2s infinite linear;
+    animation: neon 2s infinite linear;
+    transition: ease neon 2.0;
     top: 0;
     border-radius: 12px;
     left: 0;
@@ -157,15 +159,15 @@ h1 {
 
 @keyframes neon {
     0% {
-        box-shadow: 0px 0px 10px rgb(4, 0, 255);
+        box-shadow: 0px 0px 80px rgb(0, 119, 255);
     }
 
     50% {
-        box-shadow: 0px 0px 20px blue;
+        box-shadow: 0px 0px 80px rgb(0, 0, 0);
     }
 
     100% {
-        box-shadow: 0px 0px 10px red;
+        box-shadow: 0px 0px 80px rgb(10, 112, 228);
     }
 }
 
@@ -195,9 +197,12 @@ a {
 
 .nomesenha label {
     font-weight: bold;
+    background-color: rgba(65, 60, 60, 0.5);
+
 }
 
 .nomesenha input {
+    background-color: rgba(65, 60, 60, 0.5);
     width: 50%;
     height: 1px;
     /* Linha mais fina */
@@ -211,7 +216,7 @@ a {
 .nomesenha input:focus {
     width: 200px;
     height: 30px;
-    background: transparent;
+    background-color: rgba(65, 60, 60, 0.5);
     border: 2px solid black;
     text-align: left;
 }
@@ -225,7 +230,7 @@ a {
 .dark-mode .container {
     color: aliceblue;
     transition: ease 0.5s;
-    background-color: #121212;
+    background-color: #181818f3;
 }
 
 /* Ajuste correto para hover */
@@ -258,7 +263,7 @@ a {
 }
 
 .dark-mode .submit:hover {
-    background-color: rgb(18, 17, 68);
+    background-color: rgba(65, 60, 60, 0.5);
     color: white;
     border: 1px solid black;
     font-family: sans-serif;
@@ -280,6 +285,10 @@ a {
     border-radius: 7px;
 }
 
+.dark-mode .password {
+    background-color: rgba(65, 60, 60, 0.5);
+
+}
 
 main {
     justify-items: center;
@@ -433,36 +442,51 @@ body {
     left: 60px;
 }
 
+/* Ajuste correto para hover */
 .seleciona {
     background-color: transparent;
-    color: rgb(255, 255, 255);
     border: 1px solid black;
-    width: 30%;
+    width: 20%;
+    height: auto;
     font-family: sans-serif;
     /* Corrigindo erro de digitação */
-    font-size: 18px;
+    font-size: 12px;
     transition: 0.3s ease;
     text-align: center;
     cursor: pointer;
     border-radius: 10PX;
 }
 
-.dark-mode .seleciona:hover {
-    transform: scale(1.0);
+.dark-mode .seleciona {
+    transform: scale(1.5);
     /* Aumenta o tamanho em 50% */
-    color:  rgb(24, 20, 71);
-    animation: 3 SOLID NEON ; /* Altera a cor ao passar o mouse */
-}
-
-.light-mode .seleciona:hover {
-    transform: scale(1.0);
-    /* Aumenta o tamanho em 50% */
-    background-color: rgba(28, 184, 171, 0.5) ;
+    background-color: #61555570;
+    color: #f5f5f5;
     /* Altera a cor ao passar o mouse */
 }
 
+.light-mode .seleciona {
+    background-color: rgba(65, 60, 60, 0.5);
+    transform: scale(1.5);
+}
 
-.seleciona1 {
-    background-color: rgb(35, 30, 90,);
+.light-mode .seleciona:hover {
+    transform: scale(1.5);
+    /* Aumenta o tamanho em 50% */
+    background-color: #44546e98;
+    color: #121212;
+    /* Altera a cor ao passar o mouse */
+}
 
+.dark-mode .seleciona:hover {
+    background-color: rgba(65, 60, 60, 0.5);
+    color: white;
+    border: 1px solid black;
+    font-family: sans-serif;
+    font-size: 12px;
+}
+
+.dark-mode .seleciona1 {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #f5f5f5;
 }
